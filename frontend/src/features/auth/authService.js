@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://dreamjob-v5.onrender.com//api/v1/auth/';
+const API_URL = 'https://dreamjob-v5.onrender.com/api/v1/auth/';
 
 // Register user
 const register = async (userData) => {
