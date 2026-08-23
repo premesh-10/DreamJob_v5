@@ -2,7 +2,7 @@
 import api from '../../lib/api';
 import { mintStreamUrl } from '../../lib/courseStream';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://dreamjob-v5.onrender.com';
 const LEVELS = ['Beginner', 'Intermediate', 'Advanced'];
 
 const levelColors = { Beginner: 'bg-green-100 text-green-700', Intermediate: 'bg-amber-100 text-amber-700', Advanced: 'bg-red-100 text-red-700' };
