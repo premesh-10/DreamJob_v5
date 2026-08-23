@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  body {
+    @apply bg-surface text-slate-900 font-sans;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-200 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-300; }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white
+           bg-gradient-to-r from-primary-600 to-violet-600
+           shadow-primary hover:shadow-glow-violet hover:from-primary-700 hover:to-violet-700
+           focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-soft hover:bg-slate-50 hover:border-slate-300 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 transition-all duration-200;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-700 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 transition-all;
+  }
+
+  /* Inputs */
+  .input-field {
+    @apply block w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 shadow-soft focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-500/20 transition-shadow;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-card;
+  }
+  .card-interactive {
+    @apply card transition-all duration-200 hover:shadow-card-hover hover:-translate-y-px;
+  }
+  .card-glass {
+    @apply bg-white/70 backdrop-blur-xl rounded-2xl border border-white/60 shadow-float;
+  }
+
+  /* Labels */
+  .section-label {
+    @apply text-[10.5px] font-semibold uppercase tracking-widest text-slate-400;
+  }
+  .section-title {
+    @apply text-base font-semibold text-slate-900;
+  }
+  .page-title {
+    @apply text-2xl font-bold text-slate-900 tracking-tight;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: fadeUp 0.2s ease-out both;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-violet-600 bg-clip-text text-transparent;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media print {
+  .protected-content { display: none !important; }
+  body::before {
+    content: "Printing of premium course materials is disabled.";
+    display: block; text-align: center; font-size: 20px; margin-top: 50px;
+  }
+}
